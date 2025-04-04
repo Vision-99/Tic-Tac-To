@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f2f2f2;
+    background: #00000056;
+    background-image: url(../images/wall.jpg);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -15,6 +16,7 @@ h1{
 }
 .container {
     background-color: #fff;
+    
     width: 350px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(183, 6, 6, 0.758);

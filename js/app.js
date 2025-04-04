@@ -64,3 +64,32 @@ resetButton.addEventListener("click", () => {
     resultDiv.textContent = "";
     currentPlayer = "X";
 });
+
+document.addEventListener('click', function initAudio() {
+    const audio = document.getElementById('bg-music');
+    if (audio.paused) {
+        audio.play().catch(error => {
+            console.error('Playback failed:', error);
+        });
+    }
+    // Remove the event listener after first click
+    document.removeEventListener('click', initAudio);
+});
+
+window.addEventListener('load', () => {
+    const audio = document.getElementById('bg-music');
+
+    // Try to start the audio on page load
+    audio.play().catch(error => {
+        console.error('Initial playback failed:', error);
+    });
+
+    // If audio is paused, retry every 5 seconds
+    setInterval(() => {
+        if (audio.paused) {
+            audio.play().catch(error => {
+                console.error('Error resuming playback:', error);
+            });
+        }
+    }, 5000);
+});
